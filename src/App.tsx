@@ -1,10 +1,11 @@
 import React from 'react';
+import CommitCard from './components/CommitCard';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <h1>Dashboard</h1>
+      <CommitCard/>      
     </div>
   );
 }
