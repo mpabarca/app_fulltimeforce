@@ -1,25 +1,37 @@
-import React, {useState} from 'react';
-import { fetchAPIGitHub } from './API';
+import React, {useEffect, useState} from 'react';
+import { fetchAPIGitHub, CommitData } from './API';
 // import CommitCard from './components/CommitCard';
 
 const App = () => {
-  const [loading, setLoading] = useState(false);
-  const [commits, setCommits] = useState([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [commits, setCommits] = useState<CommitData[]>([]);
 
-  console.log(fetchAPIGitHub());
+  const getDataCommits = async () => {
+    const data: CommitData[] = await fetchAPIGitHub();
+    if (data != null) setCommits(data);
+    setLoading(false);
+  };
+
+  useEffect(()=> {
+    getDataCommits();
+  },[]);
+
+  const refresh = () => {
+    setLoading(true);
+    getDataCommits();
+  };
   
   return (
     <div className="App">
-      <h1>Dashboard</h1>
-      {/* {commits.map(commit => (
-        <CommitCard 
-          nameComitter = {commit.commit.committer.name} 
-          dateCommit = {commit.commit.committer.date} 
-          messageCommit = {commit.commit.message}  
-          urlCommit = {commit.commit.url} 
-          idCommit = {commit.sha} 
-        />  
-      ))}     */}
+      {loading ? (<p>cargando ... </p>) : (
+        <div>
+          <h1>Dashboard</h1>
+          <button type="button" onClick={() => refresh()}>Refresh</button>
+          {/* {commits.map(item => (
+            <CommitCard />  
+          ))}     */}
+        </div> 
+      )}
     </div>
   );
 }
