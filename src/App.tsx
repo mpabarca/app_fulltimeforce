@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { fetchAPIGitHub, CommitData } from './API';
-// import CommitCard from './components/CommitCard';
+import CommitCard from './components/CommitCard';
 
 const App = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -27,9 +27,15 @@ const App = () => {
         <div>
           <h1>Dashboard</h1>
           <button type="button" onClick={() => refresh()}>Refresh</button>
-          {/* {commits.map(item => (
-            <CommitCard />  
-          ))}     */}
+          {commits.map(item => (
+            <CommitCard 
+              nameAuthor = {item.author.login}
+              dateCommit = {item.commit.author.date}
+              messageCommit = {item.commit.message}
+              urlCommit = {item.url}
+              branchToStartCommit = {item.sha}
+            />  
+          ))}    
         </div> 
       )}
     </div>
