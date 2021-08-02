@@ -1,0 +1,43 @@
+.sidebar-container{
+    width: 500px;
+    min-height: 100vh;
+    background-color: $primary;
+    overflow: hidden;
+    position: relative;
+    &:before {
+        content: '';
+        width: 800px;
+        height: 100vh;
+        background: #fff;
+        position: absolute;
+        top: 0;
+        right: -700px;
+        border-radius: 50%;
+    }
+    .logo {
+        padding: 1rem;
+        margin: 1rem;
+        h4 {
+            color: #ffffff;
+            text-align: center;
+            font-size: 40px;
+        }
+    }
+    .menu {
+        margin-bottom: 4rem;
+        button {
+            color: #00ADEF;
+            background-color: #ffff;
+            border: 2px solid #00ADEF;
+            border-radius: 8px;
+            padding: .8rem 1.5rem;
+            font-weight: 600;
+            &:hover {
+                background-color: #00ADEF;
+                color: #ffff;
+                border: 2px solid #ffffff;
+            }
+        }
+    }
+
+}
