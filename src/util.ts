@@ -23,10 +23,10 @@ export const getDifferenceBetweenDates = (dateCompare: string) : Difference => {
 
     while(!maxUnit){
         if (count === 0) {
-            difference = (differenceTime/(1000));
+            difference = Math.trunc(differenceTime/(1000));
             maxUnit = (difference < 60);
         } else if (count === 1) {
-            difference = (differenceTime/(1000 * 60));
+            difference = Math.round(differenceTime/(1000 * 60));
             maxUnit = (difference < 60);
         } else if (count === 2) {
             difference = Math.round(differenceTime/(1000 * 60 * 60));
