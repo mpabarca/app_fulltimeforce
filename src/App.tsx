@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { fetchAPIGitHub, CommitData } from './API';
+import { getDifferenceBetweenDates } from './util';
 import CommitCard from './components/CommitCard';
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
 
   const refresh = () => {
     setLoading(true);
-    getDataCommits();
+    getDataCommits();    
   };
   
   return (
@@ -30,7 +31,7 @@ const App = () => {
           {commits.map(item => (
             <CommitCard 
               nameAuthor = {item.author.login}
-              dateCommit = {item.commit.author.date}
+              dateCommit = {getDifferenceBetweenDates(item.commit.author.date)}
               messageCommit = {item.commit.message}
               urlCommit = {item.url}
               branchToStartCommit = {item.sha}
