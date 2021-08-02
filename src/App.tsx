@@ -23,20 +23,28 @@ const App = () => {
   };
   
   return (
-    <div className="App">
+    <div className="App d-flex">
       {loading ? (<p>cargando ... </p>) : (
-        <div>
-          <h1>Dashboard</h1>
-          <button type="button" onClick={() => refresh()}>Refresh</button>
-          {commits.map(item => (
-            <CommitCard 
-              nameAuthor = {item.author.login}
-              dateCommit = {getDifferenceBetweenDates(item.commit.author.date)}
-              messageCommit = {item.commit.message}
-              urlCommit = {item.url}
-              branchToStartCommit = {item.sha}
-            />  
-          ))}    
+        <div className="d-flex content-wrapper">
+          <div className="sidebar-container">
+              <div className="logo">
+                  <h4>Show GIT Commits</h4>
+              </div>
+              <div className="menu">
+                <button type="button" onClick={() => refresh()}>Refresh</button>
+              </div>
+          </div>
+          <div className="d-flex flex-column">
+            {commits.map(item => (
+              <CommitCard 
+                nameAuthor = {item.author.login}
+                dateCommit = {getDifferenceBetweenDates(item.commit.author.date)}
+                messageCommit = {item.commit.message}
+                urlCommit = {item.url}
+                branchToStartCommit = {item.sha}
+              />  
+            ))} 
+          </div>   
         </div> 
       )}
     </div>
