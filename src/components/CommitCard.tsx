@@ -20,12 +20,6 @@ const CommitCard: React.FC<Props> = ({
     urlCommit, 
     branchToStartCommit
 }) => {
-    console.log("*****");
-    console.log(dateCommit.more30days);
-    console.log(dateCommit.date);
-    console.log(`${dateCommit.quantity} ${dateCommit.unit} ago`);
-    console.log(dateCommit.more30days ? `${dateCommit.quantity} ${dateCommit.unit} ago` : dateCommit.date);
-    console.log("*****");
     return (
             <div>
                 <div className="card">

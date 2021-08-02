@@ -42,7 +42,7 @@ export const getDifferenceBetweenDates = (dateCompare: string) : Difference => {
         count++;
     }
 
-    if (count <= 3 ) unitOfTime = (difference > 1) ? arrayUnitOfTime[count - 1] + "s" : arrayUnitOfTime[count - 1];     
+    if (count <= 4 ) unitOfTime = (difference > 1) ? arrayUnitOfTime[count - 1] + "s" : arrayUnitOfTime[count - 1];   
 
     return {quantity: difference, unit: unitOfTime, date: exactDay, more30days: more30days};
 };
