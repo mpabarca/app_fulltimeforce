@@ -38,6 +38,7 @@ export const getDifferenceBetweenDates = (dateCompare: string) : Difference => {
             exactDay = `${dateCommit.getDay()} ${month_names_short[dateCommit.getMonth()]}`
             maxUnit = true;
             more30days = true;
+            difference = 0;
         }
         count++;
     }
