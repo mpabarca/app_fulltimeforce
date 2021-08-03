@@ -21,8 +21,8 @@ const CommitCard: React.FC<Props> = ({
     branchToStartCommit
 }) => {
     return (
-            <div>
-                <div className="card">
+            <div className="commit-card d-flex justify-content-center">
+                <div className="card col-8">
                     <div className="card-body">
                         <h5 className="card-title">committed {!dateCommit.more30days ? `${dateCommit.quantity} ${dateCommit.unit} ago` : `on ${dateCommit.date}`}</h5>
                         <h6 className="card-subtitle mb-2 text-muted">comitter: {nameAuthor}</h6>
