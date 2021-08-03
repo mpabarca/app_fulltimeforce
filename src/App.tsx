@@ -43,6 +43,7 @@ const App = () => {
                   messageCommit = {item.commit.message}
                   urlCommit = {item.html_url}
                   branchToStartCommit = {item.sha}
+                  avatar_url = {item.author.avatar_url}
                 />  
               )) 
             )}

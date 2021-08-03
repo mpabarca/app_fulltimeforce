@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 
 type Props = {
@@ -11,6 +12,7 @@ type Props = {
     messageCommit: string;
     urlCommit: string;
     branchToStartCommit: string;
+    avatar_url: string;
 };
 
 const CommitCard: React.FC<Props> = ({
@@ -18,12 +20,14 @@ const CommitCard: React.FC<Props> = ({
     dateCommit, 
     messageCommit, 
     urlCommit, 
-    branchToStartCommit
+    branchToStartCommit,
+    avatar_url
 }) => {
     return (
             <div className="commit-card d-flex justify-content-center">
                 <div className="card col-8">
                     <div className="card-body">
+                        <div className="card-image-author"><img src={avatar_url} alt="image-author" /></div>
                         <h5 className="card-title">committed {!dateCommit.more30days ? `${dateCommit.quantity} ${dateCommit.unit} ago` : `on ${dateCommit.date}`}</h5>
                         <h6 className="card-subtitle mb-2 text-muted">comitter: {nameAuthor}</h6>
                         <p className="card-text">Commit: {messageCommit}</p>
