@@ -9,7 +9,7 @@ export type CommitData = {
         }
         message: string
     }
-    url: string
+    html_url: string
     author: {
         login: string
         avatar_url: string
