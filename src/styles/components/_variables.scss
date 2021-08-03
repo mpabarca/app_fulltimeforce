@@ -6,3 +6,5 @@ $primary: #00ADEF;
 $grey-fourth:#EEEEEE;
 $background-color-base: $grey-fourth;
 $font-family: 'Roboto', Sans-Serif;
+
+$border-radius: Max(0px, Min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
