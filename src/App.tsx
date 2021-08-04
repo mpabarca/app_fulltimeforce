@@ -35,7 +35,12 @@ const App = () => {
               </div>
           </div>
           <div className="dashboard-content d-flex flex-column w-100">
-            {loading ? (<p>cargando ... </p>) : (
+            {loading ? (
+              <div className="loading d-flex justify-content-center align-items-center">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>) : (
               commits.map(item => (
                 <CommitCard 
                   nameAuthor = {item.author.login}
