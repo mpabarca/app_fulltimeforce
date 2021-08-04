@@ -13,6 +13,7 @@ type Props = {
     urlCommit: string;
     branchToStartCommit: string;
     avatar_url: string;
+    author_profile: string;
 };
 
 const CommitCard: React.FC<Props> = ({
@@ -21,20 +22,21 @@ const CommitCard: React.FC<Props> = ({
     messageCommit, 
     urlCommit, 
     branchToStartCommit,
-    avatar_url
+    avatar_url,
+    author_profile
 }) => {
     return (
             
             <div className="commit-card d-flex justify-content-center">
                 <div className="card col-8 p-3">
                     <div className="card-description d-flex flex-row flex-wrap w-100">
-                        <p className="tittle-commit col-12"><a href={urlCommit}>{messageCommit}</a></p>
+                        <p className="tittle-commit col-12"><a href={urlCommit} target="_blank" rel="noreferrer">{messageCommit}</a></p>
                         <div className="card-info d-flex align-items-center col-9">
                             <div className="profile-author align-self-start me-1">
                                 <img height="20" width="20" src={avatar_url} alt="image-author" />
                             </div>
                             <div className="commit-description d-flex flex-row align-items-center flex-wrap">
-                                <a href="/AQUI AUTHOR LINK" className="me-1 align-items-center"><strong>{nameAuthor}</strong></a>
+                                <a href={author_profile} target="_blank" rel="noreferrer" className="me-1 align-items-center" ><strong>{nameAuthor}</strong></a>
                                 commited 
                                 {!dateCommit.more30days ? ` ${dateCommit.quantity} ${dateCommit.unit} ago ` : ` on ${dateCommit.date} `}
                             </div>
@@ -42,7 +44,7 @@ const CommitCard: React.FC<Props> = ({
                         </div>
                         <div className="branch-description col-2">
                             <div className="btnGroup">
-                                <a href={urlCommit} className="btn">{branchToStartCommit.slice(0,7)}</a>
+                                <a href={urlCommit} target="_blank" rel="noreferrer" className="btn">{branchToStartCommit.slice(0,7)}</a>
                             </div>
                         </div>
                     </div>
