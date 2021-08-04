@@ -13,14 +13,28 @@ const App = () => {
     setLoading(false);
   };
 
+  const getExpress = async () => {
+    const response = await fetch('/express_backend');
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message) 
+    }
+    return body;
+  };
+
   useEffect(()=> {
     getDataCommits();
+    getExpress()
+    .then(res => console.log(res.express))
+      .catch(err => console.log(err));
   },[]);
 
   const refresh = () => {
     setLoading(true);
     getDataCommits();    
   };
+
   
   return (
     <div className="App">
