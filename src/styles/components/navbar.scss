@@ -32,3 +32,13 @@
         display: block;
     }
 }
+@media only screen and (max-width: 410px) {
+    .navbar {
+        .container-fluid {
+            justify-content: center !important;
+            .logo {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}

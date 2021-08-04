@@ -67,3 +67,17 @@
     }
 
 }
+@media only screen and (max-width: 768px) {
+    .content-wrapper{
+        flex-direction: column;
+        .dashboard-content {
+            .commit-card {
+                .card {
+                    flex: 0 0 auto;
+                    width: 90%;
+                    min-width: 250px;
+                }
+            }
+        }
+    }
+}

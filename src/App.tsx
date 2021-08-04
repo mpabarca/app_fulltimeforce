@@ -24,16 +24,6 @@ const App = () => {
   
   return (
     <div className="App">
-      <nav className="navbar navbar-light">
-        <div className="container-fluid d-flex flex-row justify-content-between">
-          <div className="logo align-self-center">
-              <h4>Show GIT Commits</h4>
-          </div>
-          <div className="menu align-self-center">
-            <button type="button" className="btn btn-primary" onClick={() => refresh()}>Refresh</button>
-          </div>
-        </div>
-      </nav>
         <div className="d-flex content-wrapper w-100">
           <div className="sidebar-container d-flex flex-column justify-content-between">
               <div className="logo align-self-center">
@@ -43,6 +33,16 @@ const App = () => {
                 <button type="button" className="btn btn-primary" onClick={() => refresh()}>Refresh</button>
               </div>
           </div>
+          <nav className="navbar navbar-light">
+            <div className="container-fluid d-flex flex-row justify-content-between">
+              <div className="logo align-self-center">
+                  <h4>Show GIT Commits</h4>
+              </div>
+              <div className="menu align-self-center">
+                <button type="button" className="btn btn-primary" onClick={() => refresh()}>Refresh</button>
+              </div>
+            </div>
+          </nav>
           <div className="dashboard-content d-flex flex-column w-100">
             {loading ? (
               <div className="loading d-flex justify-content-center align-items-center">
