@@ -14,16 +14,12 @@ const App = () => {
 
     if (body.success && body.data !== null) {
       setCommits(body.data);
+      setSuccess(false);
       setLoading(false);
     } else {
       setSuccess(false);
       setLoading(false);
     }
-
-    if (response.status !== 200) {
-      throw Error(body.message) 
-    }
-    return body;
   };
 
   useEffect(()=> {
@@ -63,19 +59,25 @@ const App = () => {
                 <div className="spinner-border text-primary" role="status">
                   <span className="visually-hidden">Loading...</span>
                 </div>
-              </div>) : (
-              commits.map(item => (
-                <CommitCard 
-                  nameAuthor = {item.author.login}
-                  dateCommit = {getDifferenceBetweenDates(item.commit.author.date)}
-                  messageCommit = {item.commit.message}
-                  urlCommit = {item.html_url}
-                  branchToStartCommit = {item.sha}
-                  avatar_url = {item.author.avatar_url}
-                  author_profile = {item.author.html_url}
-                />  
-              )) 
-            )}
+              </div>) : (success ? (
+                commits.map(item => (
+                  <CommitCard 
+                    nameAuthor = {item.author.login}
+                    dateCommit = {getDifferenceBetweenDates(item.commit.author.date)}
+                    messageCommit = {item.commit.message}
+                    urlCommit = {item.html_url}
+                    branchToStartCommit = {item.sha}
+                    avatar_url = {item.author.avatar_url}
+                    author_profile = {item.author.html_url}
+                  />  
+                )) 
+              ) : (
+                <div className="d-flex justify-content-center align-items-center loading">
+                  <div className="alert alert-danger p-4 m-4 d-flex justify-content-center" role="alert">
+                    There has been an error at the time of getting the data, please wait a few minutes before you try again
+                  </div>
+                </div>
+              ))}
           </div> 
         </div> 
     </div>
