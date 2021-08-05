@@ -35,4 +35,16 @@ Runs the server using PORT 5000 > [http://localhost:5000](http://localhost:5000)
 Launches the test runner in the interactive watch mode.
 
 ## Deployment
-To run this App its important to run the server [node server.ts] and the view [npm start] at the same time on differents consoles. 
+> To run this App its important to run the server and the view at the same time on differents consoles. 
+
+### Instructions
+
+* Fork this Repository
+* Clone your forked repository
+* Install all the dependencies
+* Run the server using `node server.ts`
+* Run the view using `npm start`
+* Scroll through the entire history of commits from this project
+* Use the button **Refresh** to update the history of the commits on real time 
+
+
