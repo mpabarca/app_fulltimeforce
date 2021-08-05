@@ -14,7 +14,7 @@ const App = () => {
 
     if (body.success && body.data !== null) {
       setCommits(body.data);
-      setSuccess(false);
+      setSuccess(true);
       setLoading(false);
     } else {
       setSuccess(false);
