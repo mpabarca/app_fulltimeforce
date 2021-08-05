@@ -1,21 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import { fetchAPIGitHub, CommitData } from './API';
-import { getDifferenceBetweenDates } from './util';
-import CommitCard from './components/CommitCard';
+import React, {useEffect, useState} from "react";
+import { fetchAPIGitHub, CommitData } from "./API";
+import { getDifferenceBetweenDates } from "./util";
+import CommitCard from "./components/CommitCard";
 
 const App = () => {
   const [loading, setLoading] = useState<boolean>(true);
+  const [success, setSuccess] = useState<boolean>(true);
   const [commits, setCommits] = useState<CommitData[]>([]);
 
   const getDataCommits = async () => {
-    const data: CommitData[] = await fetchAPIGitHub();
-    if (data != null) setCommits(data);
-    setLoading(false);
-  };
-
-  const getExpress = async () => {
-    const response = await fetch('/express_backend');
+    const response = await fetch("/api_commit");
     const body = await response.json();
+
+    if (body.success && body.data !== null) {
+      setCommits(body.data);
+      setLoading(false);
+    } else {
+      setSuccess(false);
+      setLoading(false);
+    }
 
     if (response.status !== 200) {
       throw Error(body.message) 
@@ -25,9 +28,6 @@ const App = () => {
 
   useEffect(()=> {
     getDataCommits();
-    getExpress()
-    .then(res => console.log(res.express))
-      .catch(err => console.log(err));
   },[]);
 
   const refresh = () => {
