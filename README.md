@@ -1,8 +1,6 @@
 # Show Git Commits
 This app shows git commit history from this same project.
 
-View Demo: https://react-job-listing-website.vercel.app/
-
 ### Built With
 
 This project was built with 
