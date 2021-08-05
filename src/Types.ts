@@ -16,10 +16,19 @@ export type CommitData = {
         html_url: string
     }
     
-}
+};
 
-export const fetchAPIGitHub = async (): Promise<CommitData[]> => {
-    const endpoint = "https://api.github.com/repos/mpabarca/app_fulltimeforce/commits";
-    const data = await (await fetch(endpoint)).json();
-    return data;
+export type Props = {
+    nameAuthor: string;
+    dateCommit: {
+        quantity: number
+        unit: string
+        date: string
+        more30days: boolean
+    };
+    messageCommit: string;
+    urlCommit: string;
+    branchToStartCommit: string;
+    avatar_url: string;
+    author_profile: string;
 };

@@ -1,20 +1,5 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
-
-type Props = {
-    nameAuthor: string;
-    dateCommit: {
-        quantity: number
-        unit: string
-        date: string
-        more30days: boolean
-    };
-    messageCommit: string;
-    urlCommit: string;
-    branchToStartCommit: string;
-    avatar_url: string;
-    author_profile: string;
-};
+import { Props } from "../Types";
 
 const CommitCard: React.FC<Props> = ({
     nameAuthor, 
@@ -33,7 +18,7 @@ const CommitCard: React.FC<Props> = ({
                         <p className="tittle-commit col-12"><a href={urlCommit} target="_blank" rel="noreferrer">{messageCommit}</a></p>
                         <div className="card-info d-flex align-items-center col-9">
                             <div className="profile-author align-self-start me-1">
-                                <img height="20" width="20" src={avatar_url} alt="image-author" />
+                                <img height="20" width="20" src={avatar_url} alt="Profile from author" />
                             </div>
                             <div className="commit-description d-flex flex-row align-items-center flex-wrap">
                                 <a href={author_profile} target="_blank" rel="noreferrer" className="me-1 align-items-center" ><strong>{nameAuthor}</strong></a>

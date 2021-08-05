@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { fetchAPIGitHub, CommitData } from "./API";
+import { CommitData } from "./Types";
 import { getDifferenceBetweenDates } from "./util";
 import CommitCard from "./components/CommitCard";
 
